@@ -4,10 +4,15 @@ const { app, BrowserWindow } = require('electron')
 let win
 
 function createWindow () {
-  win = new BrowserWindow({ width: 800, height: 600 })
-  win.loadFile('index.html')
+  win = new BrowserWindow({
+    width: 750,
+    height: 600,
+    resizable: false
+  })
+  // win.loadFile('index.html') // todo
+  win.loadURL('https://dimiwords.tk')
 
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
   const client = require('discord-rich-presence')(secret.client_id)
 
   client.updatePresence({
